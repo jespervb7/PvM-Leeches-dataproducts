@@ -1,0 +1,1 @@
+The Dashboard theme is for storage purposes. Simply use the dashboard template pbix file to make a dashboard
