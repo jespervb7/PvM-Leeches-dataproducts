@@ -20,7 +20,9 @@ A few things I have added for interactivity and use of the dashboard itself. Hop
 ### The following pages are now created as per request:
 Only 1 page is basically requested with the ability to drill down if need be to see one's own sales made.
 
-The main items they want to see are:
+The main page show the number 1 2 and 3 seller
+
+The main items they want to see in the drill down are:
 - Favorite services to sell
 - Customers served
 - Orders completed
