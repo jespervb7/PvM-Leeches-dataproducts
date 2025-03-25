@@ -3,11 +3,15 @@ table 'DIM Sale'
 
 	column 'Sale ID'
 		dataType: string
+		isHidden
+		isKey
 		lineageTag: 86681249-3d9e-4629-84ed-26022d349165
 		summarizeBy: none
 		sourceColumn: Sale ID
 
 		annotation SummarizationSetBy = Automatic
+
+		annotation BestPracticeAnalyzer_IgnoreRules = {"RuleIDs":["RELATIONSHIP_COLUMNS_SHOULD_BE_OF_INTEGER_DATA_TYPE"]}
 
 	column 'Service Type'
 		dataType: string
@@ -96,6 +100,8 @@ table 'DIM Sale'
 				    #"Removed Duplicates" = Table.Distinct(#"Uppercased Text", {"Sale ID"})
 				in
 				    #"Removed Duplicates"
+
+		annotation BestPracticeAnalyzer_IgnoreRules = {"RuleIDs":["MINIMIZE_POWER_QUERY_TRANSFORMATIONS"]}
 
 	annotation PBI_NavigationStepName = Navigation
 

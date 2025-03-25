@@ -3,6 +3,8 @@ table 'DIM Seller'
 
 	column 'Seller ID'
 		dataType: int64
+		isHidden
+		isKey
 		formatString: 0
 		lineageTag: 6e409644-e91b-4168-b40d-ed78af41619a
 		summarizeBy: none

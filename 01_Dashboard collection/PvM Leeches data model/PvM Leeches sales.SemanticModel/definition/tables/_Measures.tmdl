@@ -28,7 +28,7 @@ table _Measures
 		lineageTag: 9f8aaa55-1638-4e78-a3f1-d77a957be221
 
 	measure 'Total sellers' = DISTINCTCOUNT('FACT Sales'[Seller ID])
-		formatString: 0
+		formatString: #,0
 		lineageTag: 68d88367-9012-4d49-86b3-61b72d52af69
 
 	measure 'Total GP' = SUM('FACT Sales'[Total gp])
@@ -36,19 +36,21 @@ table _Measures
 		lineageTag: cafcdacb-36ee-445e-816d-ddd48ffeddb6
 
 	measure 'Total customers' = DISTINCTCOUNT('FACT Sales'[Customer Name])
-		formatString: 0
+		formatString: #,0
 		lineageTag: c50dca5b-f431-4d1f-a4e5-650093470cac
 
 	measure 'Total orders' = COUNTROWS('FACT Sales')
-		formatString: 0
+		formatString: #,0
 		lineageTag: 2541fe9e-26b5-4126-ac1d-06820ec0fda5
 
 	measure 'Total GP last month' = CALCULATE([Total GP], 'DIM Date'[Month Offset] = -1)
+		formatString: #,0
 		lineageTag: 2bcd609f-fcba-4eb4-9a97-8bab6809afea
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	measure 'Total GP month to date' = CALCULATE([Total GP], 'DIM Date'[Month Offset] = 0)
+		formatString: #,0
 		lineageTag: b48b47cb-4262-4ac9-87a4-d5244845b802
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}

@@ -3,6 +3,7 @@ table 'DIM Time'
 
 	column Time
 		dataType: dateTime
+		isKey
 		formatString: Long Time
 		lineageTag: b30ff4c4-a66c-4a30-ba17-c784f47d67de
 		summarizeBy: none
@@ -11,6 +12,8 @@ table 'DIM Time'
 		annotation SummarizationSetBy = Automatic
 
 		annotation UnderlyingDateTimeDataType = Time
+
+		annotation BestPracticeAnalyzer_IgnoreRules = {"RuleIDs":["RELATIONSHIP_COLUMNS_SHOULD_BE_OF_INTEGER_DATA_TYPE"]}
 
 	column Hour
 		dataType: int64
@@ -220,6 +223,8 @@ table 'DIM Time'
 				    #"Renamed Columns14" = Table.RenameColumns(#"Multiplied Column2",{{"Integer-Division", "Minute Bin 10"}})
 				in
 				    #"Renamed Columns14"
+
+		annotation BestPracticeAnalyzer_IgnoreRules = {"RuleIDs":["MINIMIZE_POWER_QUERY_TRANSFORMATIONS"]}
 
 	annotation PBI_NavigationStepName = Navigation
 
