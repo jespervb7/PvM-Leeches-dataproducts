@@ -3,11 +3,12 @@ table 'DIM Sale'
 
 	column 'Sale ID'
 		dataType: string
-		isHidden
 		isKey
 		lineageTag: 86681249-3d9e-4629-84ed-26022d349165
 		summarizeBy: none
 		sourceColumn: Sale ID
+
+		changedProperty = IsHidden
 
 		annotation SummarizationSetBy = Automatic
 

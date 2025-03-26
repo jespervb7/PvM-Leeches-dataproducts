@@ -32,8 +32,9 @@ table _Measures
 		lineageTag: 68d88367-9012-4d49-86b3-61b72d52af69
 
 	measure 'Total GP' = SUM('FACT Sales'[Total gp])
-		formatString: #,0.0
 		lineageTag: cafcdacb-36ee-445e-816d-ddd48ffeddb6
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	measure 'Total customers' = DISTINCTCOUNT('FACT Sales'[Customer Name])
 		formatString: #,0
@@ -43,15 +44,77 @@ table _Measures
 		formatString: #,0
 		lineageTag: 2541fe9e-26b5-4126-ac1d-06820ec0fda5
 
-	measure 'Total GP last month' = CALCULATE([Total GP], 'DIM Date'[Month Offset] = -1)
+	measure 'Total GP last month' = CALCULATE([Total GP], 'DIM Date'[Month Offset] = -1, ALL('DIM Date'[Date]))
 		formatString: #,0
 		lineageTag: 2bcd609f-fcba-4eb4-9a97-8bab6809afea
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	measure 'Total GP month to date' = CALCULATE([Total GP], 'DIM Date'[Month Offset] = 0)
+	measure 'Total GP month to date' = CALCULATE([Total GP], 'DIM Date'[Month Offset] = 0, ALL('DIM Date'[Date]))
 		formatString: #,0
 		lineageTag: b48b47cb-4262-4ac9-87a4-d5244845b802
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Reference label - GP MoM difference' = ```
+			
+			
+			VAR previous_month = [Total GP last month]
+			
+			VAR current_month = [Total GP month to date]
+			
+			VAR difference = current_month - previous_month
+			
+			VAR difference_formatted = 
+			
+			    SWITCH(
+			        TRUE(),
+			        difference >= 1e12, FORMAT(difference / 1e12, "#,##0.00") & "T",
+			        difference >= 1e9, FORMAT(difference / 1e9, "#,##0.00") & "B",
+			        difference >= 1e6, FORMAT(difference / 1e6, "###0.00") & "M",
+			        FORMAT(difference, "#,##0")
+			    )
+			
+			VAR difference_percentage = FORMAT((current_month - previous_month) / previous_month, "0.0%")
+			
+			VAR arrow = IF(
+			    difference >= 0, 
+			    "▲", 
+			    "▼"
+			)
+			
+			VAR result = "MoM Change - " & difference_formatted & " (" & arrow & " " & difference_percentage & ")"
+			
+			RETURN result
+			```
+		lineageTag: f2c58f0e-decf-4cbe-8143-7daa8700284a
+
+	measure 'Total GP Text' = ```
+			
+			VAR gpValue = [Total GP]
+			RETURN 
+			    SWITCH(
+			        TRUE(),
+			        gpValue >= 1e12, "Total GP: " & FORMAT(gpValue / 1e12, "#,##0.00") & "T",
+			        gpValue >= 1e9, "Total GP: " & FORMAT(gpValue / 1e9, "#,##0.00") & "B",
+			        gpValue >= 1e6, "Total GP: " & FORMAT(gpValue / 1e6, "###0.00") & "M",
+			        "Total GP: " & FORMAT(gpValue, "#,##0")
+			    )
+			
+			```
+		lineageTag: d17d66d9-6ae7-4e5d-a9b7-bbf4ad6faf73
+
+	measure 'GP MoM difference' =
+			
+			
+			VAR previous_month = [Total GP last month]
+			
+			VAR current_month = [Total GP month to date]
+			
+			VAR result = current_month - previous_month
+			
+			RETURN result
+		lineageTag: ada9f2b1-6f82-44d1-a0ca-9c31592a97d4
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 

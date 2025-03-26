@@ -81,14 +81,12 @@ table 'FACT Sales'
 
 	column 'Amount Sold'
 		dataType: double
-		formatString: "£"#,0.###############;-"£"#,0.###############;"£"#,0.###############
+		formatString: #,0
 		lineageTag: a799a8ac-7dab-4c0e-81f6-9ebdf63dfc09
 		summarizeBy: none
 		sourceColumn: Amount Sold
 
 		annotation SummarizationSetBy = Automatic
-
-		annotation PBI_FormatHint = {"currencyCulture":"en-GB"}
 
 	column 'Total gp'
 		dataType: double

@@ -1,13 +1,13 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/1.5.0/schema.json",
-  "name": "f77a7c7e508992e27152",
+  "name": "6fcf9040cac8a4517678",
   "position": {
-    "x": 20,
-    "y": 100,
-    "z": 2000,
-    "height": 200,
-    "width": 1880,
-    "tabOrder": 1000
+    "x": 22.306368330464714,
+    "y": 259.31153184165231,
+    "z": 1002,
+    "height": 133.8382099827883,
+    "width": 1881.170395869191,
+    "tabOrder": 4002
   },
   "visual": {
     "visualType": "cardVisual",
@@ -23,11 +23,11 @@
                       "Entity": "_Measures"
                     }
                   },
-                  "Property": "Total GP Text"
+                  "Property": "Total GP"
                 }
               },
-              "queryRef": "_Measures.Total GP Text",
-              "nativeQueryRef": "Total GP Text"
+              "queryRef": "_Measures.Total GP",
+              "nativeQueryRef": "Total GP"
             },
             {
               "field": {
@@ -87,10 +87,10 @@
                     "Entity": "_Measures"
                   }
                 },
-                "Property": "Total GP Text"
+                "Property": "Total GP"
               }
             },
-            "direction": "Ascending"
+            "direction": "Descending"
           }
         ],
         "isDefaultSort": true
@@ -175,7 +175,7 @@
             "show": {
               "expr": {
                 "Literal": {
-                  "Value": "false"
+                  "Value": "true"
                 }
               }
             },
@@ -369,34 +369,6 @@
           "selector": {
             "id": "default"
           }
-        },
-        {
-          "properties": {
-            "value": {
-              "expr": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "_Measures"
-                    }
-                  },
-                  "Property": "Reference label - GP MoM difference"
-                }
-              }
-            }
-          },
-          "selector": {
-            "data": [
-              {
-                "dataViewWildcard": {
-                  "matchingOption": 0
-                }
-              }
-            ],
-            "metadata": "_Measures.Total GP Text",
-            "id": "field-5540212d-903c-3867-34af-12eb97fe688f",
-            "order": 0
-          }
         }
       ],
       "spacing": [
@@ -429,128 +401,6 @@
           "selector": {
             "id": "default"
           }
-        },
-        {
-          "properties": {
-            "valueFontColor": {
-              "solid": {
-                "color": {
-                  "expr": {
-                    "Conditional": {
-                      "Cases": [
-                        {
-                          "Condition": {
-                            "And": {
-                              "Left": {
-                                "Comparison": {
-                                  "ComparisonKind": 1,
-                                  "Left": {
-                                    "Measure": {
-                                      "Expression": {
-                                        "SourceRef": {
-                                          "Entity": "_Measures"
-                                        }
-                                      },
-                                      "Property": "GP MoM difference"
-                                    }
-                                  },
-                                  "Right": {
-                                    "Literal": {
-                                      "Value": "0D"
-                                    }
-                                  }
-                                }
-                              },
-                              "Right": {
-                                "Comparison": {
-                                  "ComparisonKind": 3,
-                                  "Left": {
-                                    "Measure": {
-                                      "Expression": {
-                                        "SourceRef": {
-                                          "Entity": "_Measures"
-                                        }
-                                      },
-                                      "Property": "GP MoM difference"
-                                    }
-                                  },
-                                  "Right": {
-                                    "Literal": {
-                                      "Value": "1e+30D"
-                                    }
-                                  }
-                                }
-                              }
-                            }
-                          },
-                          "Value": {
-                            "Literal": {
-                              "Value": "'#21F400'"
-                            }
-                          }
-                        },
-                        {
-                          "Condition": {
-                            "And": {
-                              "Left": {
-                                "Comparison": {
-                                  "ComparisonKind": 2,
-                                  "Left": {
-                                    "Measure": {
-                                      "Expression": {
-                                        "SourceRef": {
-                                          "Entity": "_Measures"
-                                        }
-                                      },
-                                      "Property": "GP MoM difference"
-                                    }
-                                  },
-                                  "Right": {
-                                    "Literal": {
-                                      "Value": "-1e+30D"
-                                    }
-                                  }
-                                }
-                              },
-                              "Right": {
-                                "Comparison": {
-                                  "ComparisonKind": 3,
-                                  "Left": {
-                                    "Measure": {
-                                      "Expression": {
-                                        "SourceRef": {
-                                          "Entity": "_Measures"
-                                        }
-                                      },
-                                      "Property": "GP MoM difference"
-                                    }
-                                  },
-                                  "Right": {
-                                    "Literal": {
-                                      "Value": "0D"
-                                    }
-                                  }
-                                }
-                              }
-                            }
-                          },
-                          "Value": {
-                            "Literal": {
-                              "Value": "'#F22000'"
-                            }
-                          }
-                        }
-                      ]
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "selector": {
-            "metadata": "_Measures.Total GP Text",
-            "id": "field-5540212d-903c-3867-34af-12eb97fe688f"
-          }
         }
       ],
       "referenceLabelTitle": [
@@ -566,20 +416,6 @@
           },
           "selector": {
             "id": "default"
-          }
-        },
-        {
-          "properties": {
-            "show": {
-              "expr": {
-                "Literal": {
-                  "Value": "false"
-                }
-              }
-            }
-          },
-          "selector": {
-            "metadata": "_Measures.Total GP Text"
           }
         }
       ]

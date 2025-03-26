@@ -33,7 +33,7 @@
           "expanded": {
             "expr": {
               "Literal": {
-                "Value": "false"
+                "Value": "true"
               }
             }
           },
@@ -143,11 +143,6 @@
           "name": "DOPS_WLZ_V38368868090545063.json",
           "path": "DOPS_WLZ_V38368868090545063.json",
           "type": "CustomTheme"
-        },
-        {
-          "name": "pvml_icon3333602924909555054.gif",
-          "path": "pvml_icon3333602924909555054.gif",
-          "type": "Image"
         }
       ]
     }
